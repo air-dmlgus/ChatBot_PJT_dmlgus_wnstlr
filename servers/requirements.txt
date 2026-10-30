@@ -1,0 +1,18 @@
+# -*- coding: utf-8 -*-
+# ChatBot 관통 PJT 서버 패키지 목록
+# - AI 실습 환경(RAG 프로젝트 requirements.txt)과 겹치는 패키지는 같은 버전으로 맞췄습니다.
+#   → 기존 RAG 프로젝트 가상환경에 그대로 설치해도 버전 충돌이 없습니다.
+# - 임베딩은 GMS(text-embedding-3-small)로 호출
+# - 설치: pip install -r requirements.txt
+
+# ---------- RAG 프로젝트와 동일한 버전 ----------
+fastapi==0.142.4
+openai==2.54.0
+chromadb==1.5.9
+python-dotenv==1.2.3
+
+# ---------- ChatBot PJT 추가 패키지 ----------
+uvicorn==0.54.0              # FastAPI 서버 실행
+python-multipart==0.0.32     # 파일 업로드(form-data) 처리
+numpy                        # 벡터 계산 (/search 코사인 유사도)
+pypdf==6.19.0                # PDF 텍스트 추출

@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f6f7fb"><title>한끼로그 · AI 식단 코치</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="layout">
+  <aside class="sidebar">
+    <a class="brand" href="#"><span class="brand-mark">한</span><span>한끼로그<small>AI MEAL COACH</small></span></a>
+    <div class="side-label">오늘의 코칭</div>
+    <button class="nav-item active" id="new-chat"><span>＋</span> 새 대화</button>
+    <div class="side-label docs-label">내 참고 문서 <button id="upload-toggle" aria-label="문서 추가">＋</button></div>
+    <div id="doc-list" class="doc-list"><div class="doc-loading">문서를 불러오는 중…</div></div>
+    <div class="sidebar-bottom"><div class="coach-avatar">🥑</div><div><b>나만의 식단 코치</b><small>근거를 바탕으로 답해요</small></div><span class="online-dot"></span></div>
+  </aside>
+  <main class="main">
+    <header class="topbar"><div class="mobile-brand"><span class="brand-mark">한</span> 한끼로그</div><div class="today"><span class="live-dot"></span> AI 코치 연결됨</div></header>
+    <section class="conversation" id="chat-window" aria-live="polite">
+      <div class="welcome" id="welcome">
+        <div class="eyebrow"><span>✦</span> YOUR PERSONAL NUTRITION COACH</div>
+        <h1>잘 먹는 하루,<br><em>여기서 시작해요.</em></h1>
+        <p>오늘 먹은 음식이나 궁금한 영양 정보를 알려주세요.<br>당신에게 맞는 현실적인 답을 함께 찾아볼게요.</p>
+        <div class="prompt-grid">
+          <button class="prompt-card" data-prompt="오늘 아침에 먹은 음식의 영양 균형을 봐줘"><span class="prompt-icon peach">☀</span><span><b>식단 균형 보기</b><small>오늘 먹은 음식 분석</small></span><i>↗</i></button>
+          <button class="prompt-card" data-prompt="운동하는 날 단백질을 얼마나 먹어야 해?"><span class="prompt-icon mint">↗</span><span><b>운동 영양 상담</b><small>운동에 맞는 영양 정보</small></span><i>↗</i></button>
+          <button class="prompt-card" data-prompt="건강한 간식 추천해줘"><span class="prompt-icon lilac">♡</span><span><b>간식 추천받기</b><small>가볍고 든든한 선택</small></span><i>↗</i></button>
+          <button class="prompt-card" data-prompt="식품 라벨에서 당류와 단백질은 어떻게 봐야 해?"><span class="prompt-icon lemon">⌕</span><span><b>영양 정보 배우기</b><small>식품 라벨 쉽게 읽기</small></span><i>↗</i></button>
+        </div>
+        <div class="disclaimer">건강 상태에 따라 필요한 영양은 달라질 수 있어요.</div>
+      </div>
+    </section>
+    <footer class="composer-wrap">
+      <div class="modebar" role="group" aria-label="답변 방식 선택"><button class="mode active" data-mode="rag">문서 기반 답변 <span>RAG</span></button><button class="mode" data-mode="chat">일반 AI</button><button class="mode" data-mode="search">문서 검색</button></div>
+      <section id="upload-panel" class="upload-panel hidden"><div class="upload-heading"><div><b>참고 문서 추가</b><small>문서를 올리면 답변에 참고해요</small></div><button id="close-upload" aria-label="닫기">×</button></div>
+        <form id="upload-form"><label class="file-drop" for="file-input"><span>＋</span><span><b>파일을 선택하거나 여기에 놓으세요</b><small>.PDF · .MD · .TXT (최대 10MB)</small></span><input id="file-input" type="file" name="file" accept=".txt,.md,.pdf" required></label><button class="upload-submit" type="submit">문서 학습하기</button></form><p id="upload-status" role="status"></p>
+      </section>
+      <div class="composer"><textarea id="user-input" rows="1" placeholder="무엇을 먹었나요? 편하게 물어보세요" aria-label="메시지 입력"></textarea><button id="send-btn" aria-label="전송"><span>↑</span></button></div>
+      <div class="composer-meta"><span><kbd>Enter</kbd> 전송 · <kbd>Shift + Enter</kbd> 줄바꿈</span><span>한끼로그 AI는 의료 전문가를 대신하지 않아요</span></div>
+    </footer>
+  </main>
+</div>
+<script src="script.js"></script>
+</body></html>
